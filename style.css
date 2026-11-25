@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #060908;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #e6ffef;
+  user-select: none;
+}
+
+#scene-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Top Layout Switcher */
+#menu {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(10, 16, 13, 0.78);
+  border: 1px solid rgba(110, 231, 150, 0.22);
+  backdrop-filter: blur(8px);
+}
+
+.layout-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #b7d7c2;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.layout-btn:hover {
+  color: #ffffff;
+  background: rgba(74, 222, 128, 0.16);
+}
+
+.layout-btn.active {
+  color: #07120b;
+  background: #6ee796;
+  border-color: #a7f3c0;
+  box-shadow: 0 0 14px rgba(110, 231, 150, 0.45);
+}
+
+/* Element Tiles */
+.element-tile {
+  width: 120px;
+  height: 148px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(14, 48, 28, 0.88);
+  border: 1px solid rgba(74, 222, 128, 0.55);
+  box-shadow:
+    inset 0 0 16px rgba(34, 197, 94, 0.22),
+    0 0 12px rgba(16, 185, 129, 0.25);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.element-tile:hover {
+  box-shadow:
+    inset 0 0 22px rgba(134, 239, 172, 0.4),
+    0 0 22px rgba(74, 222, 128, 0.65);
+}
+
+.element-number {
+  align-self: flex-end;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.element-symbol {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 12px currentColor;
+}
+
+.element-name {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.92;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Category Color Variants */
+.element-tile.nonmetal {
+  background: rgba(68, 22, 18, 0.9);
+  border-color: rgba(248, 113, 113, 0.6);
+  color: #fca5a5;
+  box-shadow: inset 0 0 16px rgba(239, 68, 68, 0.25), 0 0 12px rgba(239, 68, 68, 0.25);
+}
+
+.element-tile.noble {
+  background: rgba(20, 46, 62, 0.9);
+  border-color: rgba(56, 189, 248, 0.6);
+  color: #7dd3fc;
+  box-shadow: inset 0 0 16px rgba(14, 165, 233, 0.25), 0 0 12px rgba(14, 165, 233, 0.25);
+}
+
+.element-tile.alkali {
+  background: rgba(66, 36, 14, 0.9);
+  border-color: rgba(251, 146, 60, 0.65);
+  color: #fdba74;
+  box-shadow: inset 0 0 16px rgba(249, 115, 22, 0.25), 0 0 12px rgba(249, 115, 22, 0.25);
+}
+
+.element-tile.alkaline {
+  background: rgba(64, 54, 14, 0.9);
+  border-color: rgba(250, 204, 21, 0.65);
+  color: #fde047;
+  box-shadow: inset 0 0 16px rgba(234, 179, 8, 0.25), 0 0 12px rgba(234, 179, 8, 0.25);
+}
+
+.element-tile.metalloid {
+  background: rgba(16, 56, 48, 0.9);
+  border-color: rgba(45, 212, 191, 0.65);
+  color: #5eead4;
+  box-shadow: inset 0 0 16px rgba(20, 184, 166, 0.25), 0 0 12px rgba(20, 184, 166, 0.25);
+}
+
+.element-tile.metal,
+.element-tile.lanthanide,
+.element-tile.actinide {
+  background: rgba(16, 52, 28, 0.9);
+  border-color: rgba(74, 222, 128, 0.6);
+  color: #86efac;
+  box-shadow: inset 0 0 16px rgba(34, 197, 94, 0.25), 0 0 12px rgba(34, 197, 94, 0.25);
+}
